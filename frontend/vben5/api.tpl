@@ -15,7 +15,7 @@ enum Api {
  */
 
 export const get{{.modelName}}List = (params: BaseListReq) => {
-  return requestClient.post<BaseDataResp<{{.modelName}}ListResp>>(Api.Get{{.modelName}}List, params);
+  return requestClient.get<BaseDataResp<{{.modelName}}ListResp>>(Api.Get{{.modelName}}List, {params});
 };
 
 /**
@@ -29,19 +29,19 @@ export const create{{.modelName}} = (params: {{.modelName}}Info) => {
  *  @description: Update the {{.modelNameSpace}}
  */
 export const update{{.modelName}} = (params: {{.modelName}}Info) => {
-  return requestClient.post<BaseResp>(Api.Update{{.modelName}}, params);
+  return requestClient.put<BaseResp>(Api.Update{{.modelName}}, params);
 };
 
 /**
  *  @description: Delete {{.modelNameSpace}}s
  */
 export const delete{{.modelName}} = (params: Base{{if .useUUID}}UU{{end}}IDsReq) => {
-  return requestClient.post<BaseResp>(Api.Delete{{.modelName}}, params);
+  return requestClient.delete<BaseResp>(Api.Delete{{.modelName}},  { data: params});
 };
 
 /**
  *  @description: Get {{.modelNameSpace}} By ID
  */
 export const get{{.modelName}}ById = (params: Base{{if .useUUID}}UU{{end}}IDReq) => {
-  return requestClient.post<BaseDataResp<{{.modelName}}Info>>(Api.Get{{.modelName}}ById, params);
+  return requestClient.get<BaseDataResp<{{.modelName}}Info>>(Api.Get{{.modelName}}ById, {params});
 };
