@@ -1,0 +1,30 @@
+{{/*
+Copyright 2022-present Ryan SU (github.com/suyuan32). All rights reserved.
+This source code is licensed under the Apache 2.0 license found
+in the LICENSE file in the root directory of this source tree.
+*/}}
+{{/* gotype: entgo.io/ent/entc/gen.Graph */}}
+
+{{ define "set_or_clear" }}
+	{{/* Add the base header for the generated file */}}
+	{{ $pkg := base $.Config.Package }}
+	{{ template "header" $ }}
+
+	{{/* Loop over all updaters and implement the "SetOrClear" method for all optional fields */}}
+	{{ range $n := $.Nodes }}
+		{{ range $f := $n.Fields }}
+			{{ if $f.Optional }}
+				{{ range $updater := list $n.UpdateName $n.UpdateOneName }}
+				{{ $set := print "Set" $f.StructField }}
+				{{ $clear := print "Clear" $f.StructField }}
+				func (u *{{ $updater }}) SetOrClear{{ $f.StructField }}(value {{if not (hasPrefix $f.Type.String "[]") }}*{{end}}{{ $f.Type }}) *{{ $updater }} {
+					if value == nil {
+						return u.{{ $clear }}()
+					}
+					return u.{{ $set }}({{if not (hasPrefix $f.Type.String "[]") }}*{{end}}value)
+				}
+				{{end}}
+			{{ end }}
+		{{ end }}
+	{{ end }}
+{{ end }}
