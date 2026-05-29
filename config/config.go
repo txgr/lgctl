@@ -18,7 +18,7 @@ var OldGoZeroVersion = []string{"v1.7.1", "v1.7.2", "v1.7.3", "v1.7.4", "v1.7.5"
 const DefaultToolVersion = "v1.10.1"
 
 // lgctlVersion is lgctl version
-const lgctlVersion = "v1.14.5"
+const LgctlVersion = "v1.0.5"
 
 // CoreVersion is the core service version.
 const CoreVersion = "v1.8.4"
