@@ -23,7 +23,7 @@ func (g *Generator) GenEntInitCode(zctx *ZRpcContext, abs string) error {
 		return err
 	}
 
-	_, err = execx.Run(fmt.Sprintf("goctls rpc protoc ./%s.proto --go_out=./types --go-grpc_out=./types --zrpc_out=. --style=%s", name, g.cfg.NamingFormat), abs)
+	_, err = execx.Run(fmt.Sprintf("lgctl rpc protoc ./%s.proto --go_out=./types --go-grpc_out=./types --zrpc_out=. --style=%s", name, g.cfg.NamingFormat), abs)
 	if err != nil {
 		return err
 	}

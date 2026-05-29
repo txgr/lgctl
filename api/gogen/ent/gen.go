@@ -199,7 +199,7 @@ func genEntLogic(g *GenEntLogicContext) error {
 				if genCtx.RoutePrefix != "" {
 					prefixStr = fmt.Sprintf(" -p %s", genCtx.RoutePrefix)
 				}
-				_, err := execx.Run(fmt.Sprintf("goctls extra init_code -m %s -t other -n %s%s", genCtx.ModelName, genCtx.ServiceName, prefixStr), g.Output)
+				_, err := execx.Run(fmt.Sprintf("lgctl extra init_code -m %s -t other -n %s%s", genCtx.ModelName, genCtx.ServiceName, prefixStr), g.Output)
 				if err != nil {
 					color.Red.Printf("the init code of %s already exist, skip... \n", genCtx.ModelName)
 				}

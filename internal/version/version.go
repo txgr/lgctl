@@ -3,12 +3,10 @@ package version
 import (
 	"encoding/json"
 	"strings"
-
-	"github.com/txgr/lgctl/config"
 )
 
 // BuildVersion is the version of goctl.
-const BuildVersion = config.GoctlsVersion
+const BuildVersion = config.lgctlVersion
 
 var tag = map[string]int{"pre-alpha": 0, "alpha": 1, "pre-bata": 2, "beta": 3, "released": 4, "": 5}
 

@@ -133,8 +133,8 @@ func ListAllMiddleware() {
 	fmt.Println(tplInfo.Render())
 
 	if env.IsChinaEnv() {
-		color.Green.Println("\n使用方法： goctls extra middleware api -a authority")
+		color.Green.Println("\n使用方法： lgctl extra middleware api -a authority")
 	} else {
-		color.Green.Println("\nUsage: goctls extra middleware api -a authority")
+		color.Green.Println("\nUsage: lgctl extra middleware api -a authority")
 	}
 }

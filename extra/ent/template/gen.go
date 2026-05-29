@@ -214,8 +214,8 @@ func ListAllTemplate() {
 	fmt.Println(tplInfo.Render())
 
 	if env.IsChinaEnv() {
-		color.Green.Println("\n使用方法： goctls extra ent template -a not_empty_update -d ./ent ")
+		color.Green.Println("\n使用方法： lgctl extra ent template -a not_empty_update -d ./ent ")
 	} else {
-		color.Green.Println("\nUsage: goctls extra ent template -a not_empty_update -d ./ent")
+		color.Green.Println("\nUsage: lgctl extra ent template -a not_empty_update -d ./ent")
 	}
 }

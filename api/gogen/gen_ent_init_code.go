@@ -19,7 +19,7 @@ const initEntCodeTpl string = `    if err := l.svcCtx.DB.Schema.Create(l.ctx, sc
 
 func GenEntInitCode(dir string, cfg *config.Config, g *GenContext) error {
 	// gen init code
-	_, err := execx.Run(fmt.Sprintf("goctls api go --api ./desc/all.api --dir ./ --trans_err=true --style=%s", cfg.NamingFormat), dir)
+	_, err := execx.Run(fmt.Sprintf("lgctl api go --api ./desc/all.api --dir ./ --trans_err=true --style=%s", cfg.NamingFormat), dir)
 	if err != nil {
 		return err
 	}

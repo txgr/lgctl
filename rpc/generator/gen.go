@@ -164,7 +164,7 @@ func (g *Generator) Generate(zctx *ZRpcContext) error {
 	}
 
 	if zctx.MakeFile {
-		makefileCmd := fmt.Sprintf("goctls extra makefile -t %s -s %s -n %s", "rpc", g.cfg.NamingFormat, zctx.RpcName)
+		makefileCmd := fmt.Sprintf("lgctl extra makefile -t %s -s %s -n %s", "rpc", g.cfg.NamingFormat, zctx.RpcName)
 		if zctx.I18n {
 			makefileCmd += " -i"
 		}
@@ -182,7 +182,7 @@ func (g *Generator) Generate(zctx *ZRpcContext) error {
 
 	if zctx.DockerFile {
 		serviceName, _ := format.FileNamingFormat(g.cfg.NamingFormat, zctx.RpcName)
-		_, err = execx.Run(fmt.Sprintf("goctls docker -p %d -s %s -t rpc -l", zctx.Port, serviceName), abs)
+		_, err = execx.Run(fmt.Sprintf("lgctl docker -p %d -s %s -t rpc -l", zctx.Port, serviceName), abs)
 	}
 
 	if zctx.UseDescDir {
@@ -215,12 +215,12 @@ func (g *Generator) Generate(zctx *ZRpcContext) error {
 			return err
 		}
 
-		_, err = execx.Run("goctls extra ent template -a pagination", abs)
+		_, err = execx.Run("lgctl extra ent template -a pagination", abs)
 		if err != nil {
 			return err
 		}
 
-		_, err = execx.Run("goctls extra ent template -a set_not_nil", abs)
+		_, err = execx.Run("lgctl extra ent template -a set_not_nil", abs)
 		if err != nil {
 			return err
 		}
@@ -250,7 +250,7 @@ func (g *Generator) Generate(zctx *ZRpcContext) error {
 	}
 
 	if zctx.IsNewProject {
-		_, err = execx.Run("goctls project upgrade", abs)
+		_, err = execx.Run("lgctl project upgrade", abs)
 		if err != nil {
 			return err
 		}

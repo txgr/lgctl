@@ -35,7 +35,7 @@ import (
 const tmpFile = "%s-%d"
 
 var (
-	tmpDir = path.Join(os.TempDir(), "goctls")
+	tmpDir = path.Join(os.TempDir(), "lgctl")
 	// VarStringDir describes the directory.
 	VarStringDir string
 	// VarStringAPI describes the API.
@@ -200,7 +200,7 @@ func DoGenProject(apiFile, dir, style string, g *GenContext) error {
 			return err
 		}
 
-		_, err = execx.Run(fmt.Sprintf("goctls docker -p %d -s %s -t api -l", g.Port, service), dir)
+		_, err = execx.Run(fmt.Sprintf("lgctl docker -p %d -s %s -t api -l", g.Port, service), dir)
 	}
 
 	if g.UseMakefile {
@@ -211,7 +211,7 @@ func DoGenProject(apiFile, dir, style string, g *GenContext) error {
 			serviceType = "api"
 		}
 
-		makefileCmd := fmt.Sprintf("goctls extra makefile -t %s -s %s -n %s", serviceType, style, api.Service.Name)
+		makefileCmd := fmt.Sprintf("lgctl extra makefile -t %s -s %s -n %s", serviceType, style, api.Service.Name)
 		if g.UseI18n {
 			makefileCmd += " -i"
 		}
@@ -262,12 +262,12 @@ func DoGenProject(apiFile, dir, style string, g *GenContext) error {
 			return err
 		}
 
-		_, err = execx.Run("goctls extra ent template -a pagination", dir)
+		_, err = execx.Run("lgctl extra ent template -a pagination", dir)
 		if err != nil {
 			return err
 		}
 
-		_, err = execx.Run("goctls extra ent template -a set_not_nil", dir)
+		_, err = execx.Run("lgctl extra ent template -a set_not_nil", dir)
 		if err != nil {
 			return err
 		}
@@ -296,7 +296,7 @@ func DoGenProject(apiFile, dir, style string, g *GenContext) error {
 	}
 
 	if g.IsNewProject {
-		_, err = execx.Run("goctls project upgrade", dir)
+		_, err = execx.Run("lgctl project upgrade", dir)
 		if err != nil {
 			return err
 		}

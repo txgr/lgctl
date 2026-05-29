@@ -1,5 +1,5 @@
 {
-  "goctls": {
+  "lgctl": {
     "short": "一个基于 go zero 用于生成 Simple Admin 代码的 cli 工具",
     "long": "\n      ___                       ___           ___           ___       ___     \n     /\\  \\          ___        /\\__\\         /\\  \\         /\\__\\     /\\  \\    \n    /::\\  \\        /\\  \\      /::|  |       /::\\  \\       /:/  /    /::\\  \\   \n   /:/\\ \\  \\       \\:\\  \\    /:|:|  |      /:/\\:\\  \\     /:/  /    /:/\\:\\  \\  \n  _\\:\\~\\ \\  \\      /::\\__\\  /:/|:|__|__   /::\\~\\:\\  \\   /:/  /    /::\\~\\:\\  \\ \n /\\ \\:\\ \\ \\__\\  __/:/\\/__/ /:/ |::::\\__\\ /:/\\:\\ \\:\\__\\ /:/__/    /:/\\:\\ \\:\\__\\\n \\:\\ \\:\\ \\/__/ /\\/:/  /    \\/__/~~/:/  / \\/__\\:\\/:/  / \\:\\  \\    \\:\\~\\:\\ \\/__/\n  \\:\\ \\:\\__\\   \\::/__/           /:/  /       \\::/  /   \\:\\  \\    \\:\\ \\:\\__\\  \n   \\:\\/:/  /    \\:\\__\\          /:/  /         \\/__/     \\:\\  \\    \\:\\ \\/__/  \n    \\::/  /      \\/__/         /:/  /                     \\:\\__\\    \\:\\__\\    \n     \\/__/                     \\/__/                       \\/__/     \\/__/    \n \n 一个用于生成 Simple Admin 的 api、zrpc、model 代码的 cli 工具\n\nGitHub: https://github.com/txgr/lgctl\nSite:   https://doc.ryansu.tech/",
     "api": {
@@ -12,28 +12,28 @@
       "dir": "目标目录",
       "dart": {
         "short": "为提供的 api 文件生成 dart 文件",
-        "dir": "{{.goctls.api.dir}}",
-        "api": "{{.goctls.api.api}}",
+        "dir": "{{.lgctl.api.dir}}",
+        "api": "{{.lgctl.api.api}}",
         "legacy": "flutter v1 的传统生成器",
         "hostname": "服务器的主机名",
         "scheme": "服务器的协议"
       },
       "doc": {
         "short": "生成文档文件",
-        "dir": "{{.goctls.api.dir}}",
+        "dir": "{{.lgctl.api.dir}}",
         "o": "输出 markdown 目录"
       },
       "format": {
         "short": "格式化 api 文件",
-        "dir": "{{.goctls.api.dir}}",
+        "dir": "{{.lgctl.api.dir}}",
         "iu": "忽略更新",
         "stdin": "使用 stdin 输入 api 文档内容，按 \"ctrl + d\" 发送 EOF",
         "declare": "用于跳过已声明的 api 类型检查"
       },
       "go": {
         "short": "为提供的 api 文件生成 go 文件",
-        "dir": "{{.goctls.api.dir}}",
-        "api": "{{.goctls.api.api}}",
+        "dir": "{{.lgctl.api.dir}}",
+        "api": "{{.lgctl.api.api}}",
         "home": "{{.global.home}}",
         "remote": "{{.global.remote}}",
         "branch": "{{.global.branch}}",
@@ -63,13 +63,13 @@
       },
       "validate": {
         "short": "验证 api 文件",
-        "api": "{{.goctls.api.api}}"
+        "api": "{{.lgctl.api.api}}"
       },
       "plugin": {
         "short": "自定义文件生成器",
         "plugin": "插件文件",
-        "dir": "{{.goctls.api.dir}}",
-        "api": "{{.goctls.api.api}}",
+        "dir": "{{.lgctl.api.dir}}",
+        "api": "{{.lgctl.api.api}}",
         "style": "{{.global.style}}"
       },
       "proto": {
@@ -115,8 +115,8 @@
       },
       "swagger": {
         "short": "从 API 生成 Swagger 文件",
-        "dir": "{{.goctls.api.dir}}",
-        "api": "{{.goctls.api.api}}",
+        "dir": "{{.lgctl.api.dir}}",
+        "api": "{{.lgctl.api.api}}",
         "filename": "生成的 Swagger 文件名（不含扩展名）",
         "yaml": "生成 Swagger YAML 文件，默认为 JSON"
       }
@@ -167,15 +167,15 @@
       }
     },
     "env": {
-      "short": "检查或编辑 goctls 环境",
-      "write": "编辑 goctls 环境",
+      "short": "检查或编辑 lgctl 环境",
+      "write": "编辑 lgctl 环境",
       "force": "安静地安装不存在的依赖项",
       "verbose": "启用日志输出",
       "install": {
-        "short": "安装 Goctls 环境"
+        "short": "安装 lgctl 环境"
       },
       "check": {
-        "short": "检测 goctls 环境和依赖工具",
+        "short": "检测 lgctl 环境和依赖工具",
         "install": "如果未找到，则安装依赖项",
         "clear_cache": "清空本地缓存并重新安装所有依赖工具"
       }
@@ -280,14 +280,14 @@
         "template": {
           "short": "生成 Ent 模板",
           "add": "为 ent 添加模板",
-          "dir": "ent 目录。如果为空，goctls 将自动查找它",
+          "dir": "ent 目录。如果为空，lgctl 将自动查找它",
           "list": "列出所有支持的模板",
           "update": "更新所有模板"
         },
         "mixin": {
           "short": "生成 Ent Mixin",
           "add": "为 ent 添加 Mixin 模板",
-          "dir": "ent 目录。如果为空，goctls 将自动查找它",
+          "dir": "ent 目录。如果为空，lgctl 将自动查找它",
           "list": "列出所有支持的模板",
           "update": "更新所有模板"
         },
@@ -384,27 +384,27 @@
       "home": "模板的 goctl 路径",
       "init": {
         "short": "初始化所有模板（强制更新）",
-        "home": "{{.goctls.template.home}}",
+        "home": "{{.lgctl.template.home}}",
         "category": "模板的类别，枚举值 [api,rpc,model,docker,kube]"
       },
       "clean": {
         "short": "清除所有缓存模板",
-        "home": "{{.goctls.template.home}}"
+        "home": "{{.lgctl.template.home}}"
       },
       "update": {
         "short": "将目标类别的模板更新到最新版本",
-        "home": "{{.goctls.template.home}}",
-        "category": "{{.goctls.template.category}}"
+        "home": "{{.lgctl.template.home}}",
+        "category": "{{.lgctl.template.category}}"
       },
       "revert": {
         "short": "将目标模板回滚到最新版本",
-        "home": "{{.goctls.template.home}}",
-        "category": "{{.goctls.template.category}}",
+        "home": "{{.lgctl.template.home}}",
+        "category": "{{.lgctl.template.category}}",
         "name": "模板的目标文件名"
       }
     },
     "upgrade": {
-      "short": "升级 goctls 到最新版本"
+      "short": "升级 lgctl 到最新版本"
     },
     "project": {
       "short": "项目管理相关命令，如项目升级",
@@ -468,7 +468,7 @@
     }
   },
   "global": {
-    "home": "模板的 goctls 路径，--home 和 --remote 不能同时设置，如果设置了，--remote 优先级更高",
+    "home": "模板的 lgctl 路径，--home 和 --remote 不能同时设置，如果设置了，--remote 优先级更高",
     "remote": "模板的远程 git repo，--home 和 --remote 不能同时设置，如果设置了，--remote 优先级更高\nGit repo 的目录结构必须与 https://github.com/zeromicro/go-zero-template 相一致",
     "branch": "远程 repo 的分支，与 --remote 一起使用",
     "style": "文件命名格式，参见 [https://github.com/zeromicro/go-zero/blob/master/tools/goctl/config/readme.md]",

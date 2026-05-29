@@ -27,7 +27,7 @@ import (
 var envInfo table.Writer
 var lang = env.IsChinaEnv()
 
-// toolEnvInfo show the tools env variables usage by goctls
+// toolEnvInfo show the tools env variables usage by lgctl
 func toolEnvInfo() string {
 	color.Green.Println("TOOLS")
 	envInfo = table.NewWriter()
@@ -35,18 +35,18 @@ func toolEnvInfo() string {
 	if lang {
 		envInfo.AppendHeader(table.Row{"环境变量名称", "环境变量介绍"})
 		envInfo.AppendRows([]table.Row{
-			{"SIMPLE_LANG", "控制台中goctls的帮助信息语言类型，支持zh和en，默认为en"},
+			{"SIMPLE_LANG", "控制台中lgctl的帮助信息语言类型，支持zh和en，默认为en"},
 		})
 	} else {
 		envInfo.AppendHeader(table.Row{"Key", "Introduction"})
 		envInfo.AppendRows([]table.Row{
-			{"SIMPLE_LANG", "The goctls' help message language type in console, support zh and en, default is en"},
+			{"SIMPLE_LANG", "The lgctl' help message language type in console, support zh and en, default is en"},
 		})
 	}
 	return envInfo.Render()
 }
 
-// serviceEnvInfo show the api env variables usage by goctls
+// serviceEnvInfo show the api env variables usage by lgctl
 func apiEnvInfo() string {
 	color.Green.Println("API")
 	envInfo = table.NewWriter()
@@ -69,7 +69,7 @@ func apiEnvInfo() string {
 	return envInfo.Render()
 }
 
-// rpcEnvInfo show the rpc env variables usage by goctls
+// rpcEnvInfo show the rpc env variables usage by lgctl
 func rpcEnvInfo() string {
 	color.Green.Println("RPC")
 	envInfo = table.NewWriter()
@@ -90,7 +90,7 @@ func rpcEnvInfo() string {
 	return envInfo.Render()
 }
 
-// logEnvInfo show the log env variables usage by goctls
+// logEnvInfo show the log env variables usage by lgctl
 func logEnvInfo() string {
 	color.Green.Println("LOG")
 	envInfo = table.NewWriter()
@@ -117,7 +117,7 @@ func logEnvInfo() string {
 	return envInfo.Render()
 }
 
-// databaseEnvInfo show the database env variables usage by goctls
+// databaseEnvInfo show the database env variables usage by lgctl
 func databaseEnvInfo() string {
 	color.Green.Println("DATABASE (Ent)")
 	envInfo = table.NewWriter()
@@ -160,7 +160,7 @@ func databaseEnvInfo() string {
 	return envInfo.Render()
 }
 
-// captchaEnvInfo show the captcha env variables usage by goctls
+// captchaEnvInfo show the captcha env variables usage by lgctl
 func captchaEnvInfo() string {
 	color.Green.Println("CAPTCHA")
 	envInfo = table.NewWriter()
@@ -185,7 +185,7 @@ func captchaEnvInfo() string {
 	return envInfo.Render()
 }
 
-// authEnvInfo show the auth env variables usage by goctls
+// authEnvInfo show the auth env variables usage by lgctl
 func authEnvInfo() string {
 	color.Green.Println("JWT")
 	envInfo = table.NewWriter()
@@ -206,7 +206,7 @@ func authEnvInfo() string {
 	return envInfo.Render()
 }
 
-// i18nEnvInfo show the i18n env variables usage by goctls
+// i18nEnvInfo show the i18n env variables usage by lgctl
 func i18nEnvInfo() string {
 	color.Green.Println("I18n")
 	envInfo = table.NewWriter()
@@ -225,7 +225,7 @@ func i18nEnvInfo() string {
 	return envInfo.Render()
 }
 
-// crosEnvInfo show the cros env variables usage by goctls
+// crosEnvInfo show the cros env variables usage by lgctl
 func crosEnvInfo() string {
 	color.Green.Println("CROS")
 	envInfo = table.NewWriter()
@@ -244,7 +244,7 @@ func crosEnvInfo() string {
 	return envInfo.Render()
 }
 
-// redisEnvInfo show the redis env variables usage by goctls
+// redisEnvInfo show the redis env variables usage by lgctl
 func redisEnvInfo() string {
 	color.Green.Println("Redis")
 	envInfo = table.NewWriter()

@@ -23,7 +23,7 @@ func genCasbin(dir string, cfg *config.Config, g *GenContext) error {
 		}
 	}
 
-	_, err := execx.Run(fmt.Sprintf("goctls extra middleware api -a authority%s -s %s", useI18n, cfg.NamingFormat), dir)
+	_, err := execx.Run(fmt.Sprintf("lgctl extra middleware api -a authority%s -s %s", useI18n, cfg.NamingFormat), dir)
 
 	if err != nil {
 		return err

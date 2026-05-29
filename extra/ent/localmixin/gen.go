@@ -220,8 +220,8 @@ func ListAllTemplate() {
 	fmt.Println(tplInfo.Render())
 
 	if env.IsChinaEnv() {
-		color.Green.Println("\n使用方法： goctls extra ent mixin -a soft_delete -d ./ent ")
+		color.Green.Println("\n使用方法： lgctl extra ent mixin -a soft_delete -d ./ent ")
 	} else {
-		color.Green.Println("\nUsage: goctls extra ent mixin -a soft_delete -d ./ent")
+		color.Green.Println("\nUsage: lgctl extra ent mixin -a soft_delete -d ./ent")
 	}
 }

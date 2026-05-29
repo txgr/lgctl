@@ -1,26 +1,26 @@
 GOPATH?=$(shell go env GOPATH)
 build:
-	go build -ldflags="-s -w" goctls.go
-	mv goctls $(GOPATH)/bin/goctls
-	goctls template clean
-	goctls template init
+	go build -ldflags="-s -w" lgctl.go
+	mv lgctl $(GOPATH)/bin/lgctl
+	lgctl template clean
+	lgctl template init
 	$(if $(shell command -v upx), upx goctl)
 
 mac:
 	@echo ${GOPATH}
-	GOOS=darwin go build -ldflags="-s -w" -o goctls goctls.go
+	GOOS=darwin go build -ldflags="-s -w" -o lgctl lgctl.go
 	$(if $(shell command -v upx), upx goctl-darwin)
-	mv goctls $(GOPATH)/bin/goctls
+	mv lgctl $(GOPATH)/bin/lgctl
 
 win:
-	GOOS=windows go build -ldflags="-s -w" -o goctls.exe goctls.go
+	GOOS=windows go build -ldflags="-s -w" -o lgctl.exe lgctl.go
 	$(if $(shell command -v upx), upx goctl.exe)
-	mv goctls.exe $(GOPATH)/bin/goctls.exe
+	mv lgctl.exe $(GOPATH)/bin/lgctl.exe
 
 linux:
-	GOOS=linux go build -ldflags="-s -w" -o goctls goctls.go
+	GOOS=linux go build -ldflags="-s -w" -o lgctl lgctl.go
 	$(if $(shell command -v upx), upx goctl-linux)
-	mv goctls $(GOPATH)/bin/goctls
+	mv lgctl $(GOPATH)/bin/lgctl
 
 image:
 	docker build --rm --platform linux/amd64 -t kevinwan/goctl:$(version) .

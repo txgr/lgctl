@@ -73,13 +73,13 @@ publish-docker: # Publish docker image | 发布 docker 镜像
 {{if or .isApi .isSingle}}
 .PHONY: gen-api
 gen-api: # Generate API files | 生成 API 的代码
-	goctls api go --api ./desc/all.api --dir ./ --trans_err=$(PROJECT_I18N) --style=$(PROJECT_STYLE) --disable_validator=$(DISABLE_PLAYGROUND_VALIDATOR)
-	goctls api swagger --api=./desc/all.api --filename=$(SERVICE_STYLE) --dir=./
+	lgctl api go --api ./desc/all.api --dir ./ --trans_err=$(PROJECT_I18N) --style=$(PROJECT_STYLE) --disable_validator=$(DISABLE_PLAYGROUND_VALIDATOR)
+	lgctl api swagger --api=./desc/all.api --filename=$(SERVICE_STYLE) --dir=./
 	@echo "Generate API codes successfully"
 {{end}}{{if .isRpc}}
 .PHONY: gen-rpc
 gen-rpc: # Generate RPC files from proto | 生成 RPC 的代码
-	goctls rpc protoc ./$(SERVICE_STYLE).proto --go_out=./types --go-grpc_out=./types --zrpc_out=. --style=$(PROJECT_STYLE)
+	lgctl rpc protoc ./$(SERVICE_STYLE).proto --go_out=./types --go-grpc_out=./types --zrpc_out=. --style=$(PROJECT_STYLE)
 ifeq ($(shell uname -s), Darwin)
 	sed -i "" 's/,omitempty//g' ./types/$(SERVICE_LOWER)/*.pb.go
 else
@@ -94,12 +94,12 @@ gen-ent: # Generate Ent codes | 生成 Ent 的代码
 {{end}}{{if and .useEnt .isRpc}}
 .PHONY: gen-rpc-ent-logic
 gen-rpc-ent-logic: # Generate logic code from Ent, need model and group params | 根据 Ent 生成逻辑代码, 需要设置 model 和 group
-	goctls rpc ent --schema=./ent/schema  --style=$(PROJECT_STYLE) --multiple=false --service_name=$(SERVICE) --output=./ --model=$(model) --group=$(group) --proto_out=./desc/$(shell echo $(model) | tr A-Z a-z).proto --i18n=$(PROJECT_I18N) --overwrite=true
+	lgctl rpc ent --schema=./ent/schema  --style=$(PROJECT_STYLE) --multiple=false --service_name=$(SERVICE) --output=./ --model=$(model) --group=$(group) --proto_out=./desc/$(shell echo $(model) | tr A-Z a-z).proto --i18n=$(PROJECT_I18N) --overwrite=true
 	@echo "Generate logic codes from Ent successfully"
 {{end}}{{if and .useEnt .isSingle}}
 .PHONY: gen-api-ent-logic
 gen-api-ent-logic: # Generate CRUD logic from Ent, need to set model and group | 根据 Ent 生成 CRUD 代码，需要设置 model 和 group
-	goctls api ent --schema=./ent/schema --style=$(PROJECT_STYLE) --api_service_name=$(SERVICE) --output=./ --model=$(model) --group=$(group) --i18n=$(PROJECT_I18N) --overwrite=true --api_data=$(AUTO_API_INIT_DATA)
+	lgctl api ent --schema=./ent/schema --style=$(PROJECT_STYLE) --api_service_name=$(SERVICE) --output=./ --model=$(model) --group=$(group) --i18n=$(PROJECT_I18N) --overwrite=true --api_data=$(AUTO_API_INIT_DATA)
 	@echo "Generate CRUD codes from Ent successfully"
 {{end}}
 .PHONY: build-win
