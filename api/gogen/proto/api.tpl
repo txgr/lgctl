@@ -24,7 +24,7 @@ type (
 
     // Get {{.modelEnglishName}} list request params | {{.modelChineseName}}列表请求参数
     {{.modelName}}ListReq {
-        PageFormInfo{{.listData}}
+        PageInfo{{.listData}}
     }
 
     // The {{.modelEnglishName}} information response | {{.modelChineseName}}信息返回体
@@ -42,6 +42,7 @@ type (
     middleware: Authority{{if .hasRoutePrefix}}
     prefix: {{.routePrefix}}{{end}}
 )
+
 
 service {{.apiServiceName}} {
     // Create {{.modelEnglishName}} information | 创建{{.modelChineseName}}信息

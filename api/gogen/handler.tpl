@@ -22,6 +22,7 @@ func {{.HandlerName}}(svcCtx *svc.ServiceContext) http.HandlerFunc {
 		    err = svcCtx.Trans.TransError(r.Context(), err){{end}}
 			httpx.ErrorCtx(r.Context(), w, err)
 		} else {
+            resp.Code = 200
 			{{if .HasResp}}httpx.OkJsonCtx(r.Context(), w, resp){{else}}httpx.Ok(w){{end}}
 		}{{else}}
 		client := make(chan {{.ResponseType}}, 16)

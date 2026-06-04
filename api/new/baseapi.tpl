@@ -39,6 +39,15 @@ type PageInfo {
     PageSize  uint64    `json:"pageSize" validate:"required,number,lt=100000"`
 }
 
+// The page request parameters | 列表请求参数
+type PageFormInfo {
+    // Page number | 第几页
+    Page uint64 `form:"page" validate:"required,number,gt=0"`
+
+    // Page size | 单页数据行数
+    PageSize uint64 `form:"pageSize" validate:"required,number,lt=100000"`
+}
+
 // Basic ID request | 基础ID参数请求
 type IDReq {
     // ID
@@ -56,6 +65,12 @@ type IDsReq {
 type IDPathReq {
     // ID
     Id  uint64 `path:"id"`
+}
+
+// Basic ID request | 基础ID地址参数请求
+type IDFormReq {
+    // ID
+    Id uint64 `form:"id"`
 }
 
 // Basic ID request (int32) | 基础ID参数请求 (int32)

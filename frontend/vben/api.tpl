@@ -16,8 +16,8 @@ enum Api {
  */
 
 export const get{{.modelName}}List = (params: BaseListReq, mode: ErrorMessageMode = 'notice') => {
-  return defHttp.get<BaseDataResp<{{.modelName}}ListResp>>(
-    { url: Api.Get{{.modelName}}List, {params} },
+  return defHttp.post<BaseDataResp<{{.modelName}}ListResp>>(
+    { url: Api.Get{{.modelName}}List, params },
     { errorMessageMode: mode },
   );
 };
@@ -39,7 +39,7 @@ export const create{{.modelName}} = (params: {{.modelName}}Info, mode: ErrorMess
  *  @description: Update the {{.modelNameSpace}}
  */
 export const update{{.modelName}} = (params: {{.modelName}}Info, mode: ErrorMessageMode = 'notice') => {
-  return defHttp.put<BaseResp>(
+  return defHttp.post<BaseResp>(
     { url: Api.Update{{.modelName}}, params: params },
     {
       errorMessageMode: mode,
@@ -52,8 +52,8 @@ export const update{{.modelName}} = (params: {{.modelName}}Info, mode: ErrorMess
  *  @description: Delete {{.modelNameSpace}}s
  */
 export const delete{{.modelName}} = (params: Base{{if .useUUID}}UU{{end}}IDsReq, mode: ErrorMessageMode = 'notice') => {
-  return defHttp.delete<BaseResp>(
-    { url: Api.Delete{{.modelName}}, { data: params } },
+  return defHttp.post<BaseResp>(
+    { url: Api.Delete{{.modelName}}, params: params },
     {
       errorMessageMode: mode,
       successMessageMode: mode,
@@ -65,8 +65,8 @@ export const delete{{.modelName}} = (params: Base{{if .useUUID}}UU{{end}}IDsReq,
  *  @description: Get {{.modelNameSpace}} By ID
  */
 export const get{{.modelName}}ById = (params: Base{{if .useUUID}}UU{{end}}IDReq, mode: ErrorMessageMode = 'notice') => {
-  return defHttp.get<BaseDataResp<{{.modelName}}Info>>(
-    { url: Api.Get{{.modelName}}ById, params: {params} },
+  return defHttp.post<BaseDataResp<{{.modelName}}Info>>(
+    { url: Api.Get{{.modelName}}ById, params: params },
     {
       errorMessageMode: mode,
     },

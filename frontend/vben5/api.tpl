@@ -36,7 +36,7 @@ export const update{{.modelName}} = (params: {{.modelName}}Info) => {
  *  @description: Delete {{.modelNameSpace}}s
  */
 export const delete{{.modelName}} = (params: Base{{if .useUUID}}UU{{end}}IDsReq) => {
-  return requestClient.delete<BaseResp>(Api.Delete{{.modelName}},  { data: params});
+  return requestClient.delete<BaseResp>(Api.Delete{{.modelName}}, { data: params});
 };
 
 /**
