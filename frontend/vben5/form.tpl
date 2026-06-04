@@ -25,7 +25,7 @@
         const result = isUpdate.value
             ? await update{{.modelName}}(values as {{.modelName}}Info)
             : await create{{.modelName}}(values as {{.modelName}}Info);
-        if (result.code === 0) {
+        if (result.code === 200) {
             message.success(result.msg);
             gridApi.value.reload();
         }
