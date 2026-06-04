@@ -24,7 +24,7 @@ type (
 
     // Get {{.modelEnglishName}} list request params | {{.modelChineseName}}列表请求参数
     {{.modelName}}ListReq {
-        PageInfo{{.listData}}
+        PageFormInfo{{.listData}}
     }
 
     // The {{.modelEnglishName}} information response | {{.modelChineseName}}信息返回体
