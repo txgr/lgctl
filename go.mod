@@ -1,6 +1,6 @@
 module github.com/txgr/lgctl
 
-go 1.26.2
+go 1.26.5
 
 require (
 	ariga.io/atlas v1.2.1
